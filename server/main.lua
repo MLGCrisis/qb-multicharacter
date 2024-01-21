@@ -86,7 +86,7 @@ RegisterNetEvent('qb-multicharacter:server:disconnect', function()
     DropPlayer(src, Lang:t("commands.droppedplayer"))
 end)
 
--- removed for ps-housing
+-- removed by pamela for ps-housing
 --[[RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
     if QBCore.Player.Login(src, cData.citizenid) then
@@ -111,21 +111,21 @@ end)
     end
 end)]]
 
---added for ps-housing
+--added by pamela for ps-housing
 RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
     local src = source
-        if QBCore.Player.Login(src, cData.citizenid) then
-            repeat
-                Wait(10)
-            until hasDonePreloading[src]
-            print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
-            QBCore.Commands.Refresh(src)
-            TriggerClientEvent('ps-housing:client:setupSpawnUI', src, cData)
-            TriggerEvent("qb-log:server:CreateLog", "joinleave", "Loaded", "green", "**".. GetPlayerName(src) .. "** (<@"..(QBCore.Functions.GetIdentifier(src, 'discord'):gsub("discord:", "") or "unknown").."> |  ||"  ..(QBCore.Functions.GetIdentifier(src, 'ip') or 'undefined') ..  "|| | " ..(QBCore.Functions.GetIdentifier(src, 'license') or 'undefined') .." | " ..cData.citizenid.." | "..src..") loaded..")
-        end
-    end)
+    if QBCore.Player.Login(src, cData.citizenid) then
+        repeat
+            Wait(10)
+        until hasDonePreloading[src]
+        print('^2[qb-core]^7 '..GetPlayerName(src)..' (Citizen ID: '..cData.citizenid..') has succesfully loaded!')
+        QBCore.Commands.Refresh(src)
+        TriggerClientEvent('ps-housing:client:setupSpawnUI', src, cData)
+        TriggerEvent("qb-log:server:CreateLog", "joinleave", "Loaded", "green", "**".. GetPlayerName(src) .. "** (<@"..(QBCore.Functions.GetIdentifier(src, 'discord'):gsub("discord:", "") or "unknown").."> |  ||"  ..(QBCore.Functions.GetIdentifier(src, 'ip') or 'undefined') ..  "|| | " ..(QBCore.Functions.GetIdentifier(src, 'license') or 'undefined') .." | " ..cData.citizenid.." | "..src..") loaded..")
+    end
+end)
 
---removed for ps-housing
+--removed by pamela for ps-housing
 --[[RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
     local src = source
     local newData = {}
@@ -154,7 +154,7 @@ RegisterNetEvent('qb-multicharacter:server:loadUserData', function(cData)
     end
 end)]]
 
---added for ps-housing
+--added by pamela for ps-housing
 RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
     local src = source
     local newData = {}
